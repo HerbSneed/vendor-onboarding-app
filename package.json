@@ -1,7 +1,7 @@
 {
   "name": "vendor-onboarding-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "The Vendoer Onboarding App is a user-friendly platform that facilitates the seamless registration process for new vendors seeking to offer their services to the Chicago Cubs Video Production Department. Tailored to meet the specific needs of both the vendors and the department, the application streamlines the onboarding experience, providing a straightforward and efficient way for vendors to submit their information and offerings. By leveraging modern technology, the app ensures a hassle-free registration process, contributing to the overall efficiency of the Chicago Cubs Video Production Department's vendor management system.",
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js --ignore client",
@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/HerbSneed/vendor-onboarding-app/issues"
   },
-  "homepage": "https://github.com/HerbSneed/US-Chronicle#readme",
+  "homepage": "https://github.com/HerbSneed/vendor-onboarding-app/blob/main/README.md",
   "dependencies": {
     "axios": "^1.7.2",
     "body-parser": "^1.20.2",
