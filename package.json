@@ -1,5 +1,5 @@
 {
-  "name": "cubs-vendor-app",
+  "name": "vendor-onboarding-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/HerbSneed/US-Chronicle"
+    "url": "https://github.com/HerbSneed/vendor-onboarding-app"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jbohde/vite-apollo-mongo/issues"
+    "url": "https://github.com/HerbSneed/vendor-onboarding-app/issues"
   },
   "homepage": "https://github.com/HerbSneed/US-Chronicle#readme",
   "dependencies": {
