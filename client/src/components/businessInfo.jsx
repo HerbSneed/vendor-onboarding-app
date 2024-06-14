@@ -83,19 +83,21 @@ const BusinessInfo = ({ businessInfo, updateBusinessInfo }) => {
   return (
     <div
       id="business_info"
-      className="flex flex-col items-center justify-center mx-auto"
+      className="flex drop-shadow-lg flex-col items-center justify-center sm:justify-center w-full"
     >
-      <div>
-        <h2 className="text-3xl drop-shadow-lg mt-5 text-white font-bold">
-          Business Information
-        </h2>
-      </div>
-
       <form
         method="POST"
         onSubmit={handleBusinessClick}
-        className="bg-cubblue border-2 border-cubred bg-opacity-80 shadow-lg rounded-xl mx-auto flex flex-col sm:flex-row sm:flex-wrap my-[1%] lg:my-[2%] lg:my-0 gap-2 p-3 w-[350px]"
+        className="bg-cubblue border-2 border-cubred bg-opacity-80 shadow-lg rounded-xl mx-auto flex flex-wrap flex-col mx-[7px] max-w-[350px] my-4 gap-2 p-3 sm:w-[450px]"
       >
+        <div className="text-center mx-2">
+          <h2 className="text-3xl drop-shadow-lg text-white font-bold">
+            Business Information
+          </h2>
+          <p className="text-white font-bold">
+            Here you'll provide the vendor's business information.
+          </p>
+        </div>
         <div className="flex flex-col w-full">
           <label htmlFor="service_provided" className="text-white">
             Service Provided
@@ -111,23 +113,7 @@ const BusinessInfo = ({ businessInfo, updateBusinessInfo }) => {
           />
         </div>
 
-        <div className="flex flex-col w-full sm:w-[36%]">
-          <label htmlFor="minority_ownership" className="text-white sm:w-full">
-            Minority Owned
-          </label>
-          <select
-            name="minority_ownership"
-            id="minority_ownership"
-            className="bg-white mb-1 w-4/12 sm:w-full p-3 h-12"
-            value={businessInfo.minority_ownership}
-            onChange={handleChange}
-          >
-            <option value={true}>Yes</option>
-            <option value={false}>No</option>
-          </select>
-        </div>
-
-        <div className="flex flex-col w-full sm:w-[60%]">
+        <div className="flex flex-col min-w-[50%]">
           <label htmlFor="authorized_name" className="text-white">
             Authorized Name
           </label>
@@ -142,7 +128,7 @@ const BusinessInfo = ({ businessInfo, updateBusinessInfo }) => {
           />
         </div>
 
-        <div className="flex flex-col w-full sm:w-[60%]">
+        <div className="flex flex-col min-w-[50%]">
           <label htmlFor="authorized_phone_number" className="text-white">
             Authorized Phone #
           </label>
@@ -155,6 +141,22 @@ const BusinessInfo = ({ businessInfo, updateBusinessInfo }) => {
             value={businessInfo.authorized_phone_number}
             onChange={handleChange}
           />
+        </div>
+
+        <div className="flex flex-col w-[36%]">
+          <label htmlFor="minority_ownership" className="text-white sm:w-full">
+            Minority Owned
+          </label>
+          <select
+            name="minority_ownership"
+            id="minority_ownership"
+            className="bg-white mb-1 w-full p-3 h-12"
+            value={businessInfo.minority_ownership}
+            onChange={handleChange}
+          >
+            <option value={true}>Yes</option>
+            <option value={false}>No</option>
+          </select>
         </div>
 
         <div className="flex flex-col w-full" ref={canvasContainerRef}>

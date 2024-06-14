@@ -43,17 +43,20 @@ const BankInfo = ({ bankInfo, updateBankInfo }) => {
       id="bank_info"
       className="flex flex-col items-center justify-center mx-auto "
     >
-      <div>
-        <h2 className="text-3xl drop-shadow-lg mt-5 text-white font-bold">
-          Banking Information
-        </h2>
-      </div>
-
       <form
         method="POST"
         onSubmit={handleBankInfoClick}
-        className="bg-cubblue border-2 border-cubred bg-opacity-80 shadow-lg rounded-xl mx-auto flex flex-col my-[1%] lg:my-[2%] gap-2 p-3 w-[350px]"
+        className="bg-cubblue border-2 border-cubred bg-opacity-80 shadow-lg rounded-xl mx-auto flex flex-col mx-[9px] max-w-[350px] my-4 gap-2 p-3 sm:w-[350px]"
       >
+        <div className="text-center mx-2">
+          <h2 className="text-3xl drop-shadow-lg text-white font-bold">
+            Banking Information
+          </h2>
+          <p className="text-white font-bold">
+            Here you'll provide the vendor's banking information.
+          </p>
+        </div>
+
         <div className="flex flex-col w-full lg:w-full">
           <label htmlFor="bank_name" className="text-white">
             Bank Name

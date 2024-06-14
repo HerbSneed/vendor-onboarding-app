@@ -26,8 +26,7 @@ const createEmailInfo = async () => {
 
   return {
     email: finance.finance_email,
-    password: finance.document_password,
-    name: finance.finance_name
+
   };
 };
 

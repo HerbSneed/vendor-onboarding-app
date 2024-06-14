@@ -9,4 +9,26 @@ html, body, #root {
   padding: 0;
 }
 
+input {
+  border-radius: 3px;
+}
 
+.bg-gradient-to-b {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent);
+}
+
+.bg-gradient-to-t {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, transparent);
+}

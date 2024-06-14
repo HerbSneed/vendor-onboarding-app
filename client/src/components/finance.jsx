@@ -35,7 +35,9 @@ const financeLogin = () => {
               <button type="submit" id="newFinanceSubmit"
                 className="hover:bg-cubred bg-cubblue border-cubred border-2 text-white px-4 py-3 rounded-xl font-medium w-full">Submit</button>
               </div>
+              
             </div>
+          </div>
         </form>
       </div>
     </section>

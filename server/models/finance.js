@@ -12,15 +12,8 @@ Finance.init(
    allowNull: false,
    primaryKey: true
   },
-  finance_name: {
-   type: DataTypes.STRING,
-   allowNull: false
-  },
+
   finance_email: {
-   type: DataTypes.STRING,
-   allowNull: false
-  },
-  document_password: {
    type: DataTypes.STRING,
    allowNull: false
   },

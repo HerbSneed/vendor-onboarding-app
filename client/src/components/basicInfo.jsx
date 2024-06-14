@@ -63,16 +63,21 @@ const BasicInfo = ({ basicInfo, updateBasicInfo }) => {
   };
 
   return (
-    <div id="locale" className="flex flex-col items-center justify-center mx-auto ">
-      <div>
-        <h2 className="text-3xl drop-shadow-lg mt-5 text-white font-bold">Contact Information</h2>
-      </div>
+    <div
 
+      className="flex drop-shadow-lg flex-col items-center justify-center sm:justify-center w-full"
+    >
       <form
         method="POST"
         onSubmit={handleBasicClick}
-        className="bg-cubblue border-2 border-cubred bg-opacity-80 shadow-lg rounded-xl mx-auto flex flex-col my-[1%] lg:my-[2%] gap-2 p-3 w-[350px]"
+        className="bg-cubblue border-2 border-cubred bg-opacity-80 shadow-lg rounded-xl mx-auto flex flex-col mx-[8px] max-w-[350px] my-4 gap-2 p-3 sm:w-[350px]"
       >
+        <div className="text-center mb-[5px]">
+          <h2 className="text-3xl text-white font-bold">Contact Information</h2>
+          <p className="text-white px-[10px] font-semibold">
+            Here you'll provide the vendor's contact information.
+          </p>
+        </div>
         <div className="flex flex-wrap gap-x-2">
           <label htmlFor="vendor_name" className="text-white w-full">
             Vendor Name
@@ -182,7 +187,7 @@ const BasicInfo = ({ basicInfo, updateBasicInfo }) => {
             />
           </div>
 
-          <div className="flex flex-col w-[30%] sm:w-[30%]">
+          <div className="flex flex-col w-[30%]">
             <label htmlFor="zip_code" className="text-white">
               Zip Code
             </label>

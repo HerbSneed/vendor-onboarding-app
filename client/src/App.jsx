@@ -4,9 +4,9 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <div className="min-h-screen  bg-custom-bg bg-cover bg-left-center lg:bg-center bg-fixed bg-no-repeat bg-cover lg:bg-cover">
+    <div className="bg-custom-bg bg-cover bg-left-center lg:bg-center bg-fixed bg-no-repeat min-h-screen  grid grid-cols-1 min-w-screen">
       <Header />
-      <main className="flex-grow flex items-center">
+      <main className="">
         <Outlet />
       </main>
     </div>

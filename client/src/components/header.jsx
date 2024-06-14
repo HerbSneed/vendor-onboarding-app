@@ -1,6 +1,4 @@
-import CubsRedLogo from '../assets/images/CubsProductions_PrimaryLogo_v2.webp';
-
-
+import CubsRedLogo from "../assets/images/CubsProductions_PrimaryLogo_v2.webp";
 import { useEffect } from "react";
 
 const Header = () => {
@@ -11,29 +9,22 @@ const Header = () => {
     link.href = CubsRedLogo;
     document.head.appendChild(link);
 
-    // Cleanup function to remove the link when component unmounts
     return () => {
       document.head.removeChild(link);
     };
   }, []);
 
   return (
-    <>
-      <header
-        id="main"
-        className="sticky z-50 flex justify-center items-center top-0 bg-cubblue h-16 md:h-20 w-full mx-auto"
-      >
-        <a href="/">
-          <img
-            src={CubsRedLogo}
-            alt="cubs red logo"
-            className="mx-auto w-[150px] md:w-[175px]"
-          />
-        </a>
-      </header>
-    </>
+    <header className="sticky top-0 z-50 flex justify-center items-center bg-cubblue h-20 md:h-20  w-full">
+      <a href="/">
+        <img
+          src={CubsRedLogo}
+          alt="Cubs Red Logo"
+          className="w-[175px]"
+        />
+      </a>
+    </header>
   );
 };
 
 export default Header;
-

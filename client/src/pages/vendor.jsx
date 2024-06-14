@@ -17,7 +17,7 @@ const Vendor = () => {
   const [isBankComplete, setIsBankComplete] = useState(false);
 
   return (
-    <div className="bg-cubsBlue">
+    <div className="flex justify-center items-center min-w-screen">
       {isBasicComplete ? (
         isDisclaimerAgreement ? (
           isBuisnessComplete ? (
