@@ -10,7 +10,7 @@ const CryptoJS = require('crypto-js');
 const getFinanceDetails = async () => {
   const finance = await Finance.findOne({
     where: { finance_id: 1 },
-    attributes: ['finance_email', 'finance_name', 'document_password'],
+    attributes: ['finance_email'],
     raw: true,
     hooks: false,
   });
