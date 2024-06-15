@@ -10,6 +10,7 @@
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build",
     "lint": "eslint . --ext .js,.jsx"
+
   },
   "engines": {
   "node": "21.6.2",
