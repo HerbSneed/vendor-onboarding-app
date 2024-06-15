@@ -64,7 +64,6 @@ const BasicInfo = ({ basicInfo, updateBasicInfo }) => {
 
   return (
     <div
-
       className="flex drop-shadow-lg flex-col items-center justify-center sm:justify-center w-full"
     >
       <form
@@ -72,6 +71,8 @@ const BasicInfo = ({ basicInfo, updateBasicInfo }) => {
         onSubmit={handleBasicClick}
         className="bg-cubblue border-2 border-cubred bg-opacity-80 shadow-lg rounded-xl mx-auto flex flex-col mx-[8px] max-w-[350px] my-4 gap-2 p-3 sm:w-[350px]"
       >
+
+        
         <div className="text-center mb-[5px]">
           <h2 className="text-3xl text-white font-bold">Contact Information</h2>
           <p className="text-white px-[10px] font-semibold">
