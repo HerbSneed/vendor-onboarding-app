@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS vendor_onboarding_app_db;
+DROP DATABASE IF EXISTS onboarding_app_db;
 
-CREATE DATABASE vendor_onboarding_app_db;
+CREATE DATABASE onboarding_app_db;

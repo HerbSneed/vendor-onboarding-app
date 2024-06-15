@@ -8,9 +8,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 
-
 const PORT = process.env.PORT || 3001;
-const BASE_URL = process.env.NODE_ENV === 'production' ? 'https://vendor-onboarding-app-54b9b2aea80d.herokuapp.com/' : `http://localhost:${PORT}`;
+const BASE_URL = process.env.NODE_ENV === 'production' ? 'https://us-chronicle-5f8b6391feb6.herokuapp.com/' : `http://localhost:${PORT}`;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -19,13 +18,13 @@ app.use('/public', express.static(path.join(__dirname, 'client', 'dist')));
 
 
 const startServer = async () => {
-  app.use(express.json()); 
-  app.use(express.urlencoded({ extended: false}));
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: false }));
   app.use(express.static(path.join(__dirname, 'public')));
   app.use('/api', routes);
 
   if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../client/dist'))); 
+    app.use(express.static(path.join(__dirname, '../client/dist')));
     app.get('*', (req, res) => {
       res.sendFile(path.join(__dirname, '../client/dist/index.html'));
     });
