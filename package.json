@@ -11,6 +11,9 @@
     "build": "cd client && npm run build",
     "lint": "eslint . --ext .js,.jsx"
   },
+  "engines": {
+    "node": ">=12.0.0 <15.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/HerbSneed/vendor-onboarding-app"
@@ -22,7 +25,6 @@
   },
   "homepage": "https://github.com/HerbSneed/vendor-onboarding-app/blob/main/README.md",
   "dependencies": {
-  
     "base64-img": "^1.0.4",
     "bcryptjs": "^2.4.3",
     "crypto-js": "^4.2.0",
@@ -60,13 +62,9 @@
     "write-excel-file": "^1.4.27"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.7",
-    "@babel/preset-env": "^7.24.7",
-    "@babel/preset-react": "^7.24.7",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0-beta.0",
-    "babel-loader": "^9.1.3",
     "concurrently": "^8.2.0",
     "css-loader": "^7.1.2",
     "eslint": "^8.47.0",
@@ -77,13 +75,9 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.2",
     "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^5.6.0",
     "prettier": "^3.0.2",
     "style-loader": "^4.0.0",
     "terser": "^5.31.1",
     "vite": "^4.3.2",
-    "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4"
   }
 }
