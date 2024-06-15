@@ -7,6 +7,8 @@ const Finance = require('../models/finance');
 const bcrypt = require('bcryptjs');
 const CryptoJS = require('crypto-js');
 
+
+
 const getFinanceDetails = async () => {
   const finance = await Finance.findOne({
     where: { finance_id: 1 },

@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/HerbSneed/vendor-onboarding-app/blob/main/README.md",
   "dependencies": {
-    "base64-img": "^1.0.4",
     "bcryptjs": "^2.4.3",
     "crypto-js": "^4.2.0",
     "exceljs": "^4.3.0",
