@@ -152,280 +152,280 @@ const VendorSignup = () => {
 
 
   return (
-    <div className="border-4 rounded-lg bg-cubblue bg-opacity-70 border-cubblue mx-[10px] max-w-[350px] overflow-hidden my-5 mx-auto">
-      <form id="vendorForm" className="" onSubmit={handleSubmit}>
-        <div className="my-[5px]">
-          <div className="text-center mb-[5px]">
-            <h2 className="px-2 text-3xl text-white font-bold">
-              Contact Information
-            </h2>
-          </div>
-        </div>
+    <div className="bg-cubblue bg-opacity-30 overflow-hidden mx-auto ">
+      <form
+        id="vendorForm"
+        className="mx-2 my-6 mb:m-4"
+        onSubmit={handleSubmit}
+      >
+        {/* Basic Info */}
 
-        <div className="rounded-b-xl px-2 py-2">
-          <div className="flex flex-col w-12/12 gap-x-2 lg:flex-row lg:h-auto lg:gap-x-2 lg:justify-between">
-            {/* Basic Info */}
-            <div>
-              <div
-                id="basic_info"
-                className="bg-cubblue border-2 rounded-xl shadow-lg border-cubred p-3 w-full h-1/4 lg:w-1/2 xl:w-1/2 lg:flex-auto"
-              >
-                <label htmlFor="vendor_name" className="text-white">
-                  Vendor Name
+        <div className="mx-auto text-center mb:text-left max-w-[375px] mb:max-w-[400px]">
+          <div
+            id="basic_info"
+            className="flex flex-col mb:flex-wrap  lg:flex-auto bg-cubblue bg-opacity-80 border-2 rounded-xl shadow-lg border-cubred px-3 w-full py-4"
+          >
+            <div className="mx-auto">
+              <h2 className="text-3xl text-white font-bold">Contact Info</h2>
+            </div>
+
+            <div className="max-w-[250px]  mx-auto mb:mx-0 mb:max-w-full">
+              <label htmlFor="vendor_name" className="text-white">
+                Vendor Name
+              </label>
+              <input
+                type="text"
+                name="vendor_name"
+                id="vendor_name"
+                placeholder="Your Vendor Name"
+                className="bg-white w-full p-3"
+                value={formState.vendor_name}
+                onChange={handleEdit}
+              />
+            </div>
+
+            <label htmlFor="contact_info" className="text-white">
+              Contact Name
+            </label>
+
+            <div className="max-w-[250px] mb:max-w-full flex flex-col justify-center items-center mx-auto mb:flex-row mb:flex-wrap mb:justify-between">
+              <input
+                type="text"
+                name="contact_firstName"
+                id="contact_firstName"
+                placeholder="First Name"
+                className="bg-white w-full mb:w-[49%] p-3"
+                value={formState.contact_firstName}
+                onChange={handleEdit}
+              />
+              <input
+                type="text"
+                name="contact_lastName"
+                id="contact_lastName"
+                placeholder="Last Name"
+                className="bg-white w-full mb:w-[49%] p-3"
+                value={formState.contact_lastName}
+                onChange={handleEdit}
+              />
+            </div>
+
+            <div className="max-w-[250px] mb:max-w-full mx-auto mb:flex mb:justify-between">
+              <div className="mb:w-[49%]">
+                <label
+                  htmlFor="contact_phone_number"
+                  className="text-white mb:text-left"
+                >
+                  Contact Phone #
+                </label>
+                <input
+                  type="tel"
+                  name="contact_phone_number"
+                  id="contact_phone_number"
+                  placeholder="Phone Number"
+                  className="bg-white p-3 w-full"
+                  value={formState.contact_phone_number}
+                  onChange={handleEdit}
+                />
+              </div>
+
+              <div className="mb:w-[49%]">
+                <label htmlFor="tax_id" className="text-white">
+                  Tax ID/SSN
                 </label>
                 <input
                   type="text"
-                  name="vendor_name"
-                  id="vendor_name"
-                  placeholder="Your Vendor Name"
-                  className="bg-white w-full my-2 p-3"
-                  value={formState.vendor_name}
+                  name="tax_id"
+                  id="tax_id"
+                  placeholder="Tax ID or SSN"
+                  className="bg-white  p-3 w-full"
+                  value={formState.tax_id}
                   onChange={handleEdit}
                 />
+              </div>
+            </div>
 
-                <label htmlFor="contact_info" className="text-white">
-                  Contact Name
+            <div className="max-w-[250px] mb:max-w-full mx-auto">
+              <label htmlFor="remittance_address" className="text-white">
+                Street Address or P.O. Box
+              </label>
+
+              <input
+                type="text"
+                name="remittance_address"
+                id="remittance_address"
+                placeholder="Street Address or P.O. Box"
+                className="bg-white  p-3 w-full"
+                value={formState.remittance_address}
+                onChange={handleEdit}
+              />
+            </div>
+
+            <div className="max-w-[250px] mb:max-w-full mx-auto mb:flex mb:justify-between">
+              <div className="w-full mb:w-[49%]">
+                <label htmlFor="city" className="text-white">
+                  City
                 </label>
-                <div className="flex justify-between">
-                  <input
-                    type="text"
-                    name="contact_firstName"
-                    id="contact_firstName"
-                    placeholder="First Name"
-                    className="bg-white w-5/12 my-2 p-3 mr-2"
-                    value={formState.contact_firstName}
-                    onChange={handleEdit}
-                  />
-                  <input
-                    type="text"
-                    name="contact_lastName"
-                    id="contact_lastName"
-                    placeholder="Last Name"
-                    className="bg-white w-5/12 my-2 p-3 mr-2"
-                    value={formState.contact_lastName}
-                    onChange={handleEdit}
-                  />
-                  <input
-                    type="text"
-                    name="contact_MiddleInt"
-                    id="contact_MiddleInt"
-                    placeholder="M.I."
-                    className="bg-white w-2/12 my-2 p-3"
-                    value={formState.contact_MiddleInt}
-                    onChange={handleEdit}
-                  />
-                </div>
 
-                <div className="flex justify-between">
-                  <div className="w-6/12 mr-2">
-                    <label
-                      htmlFor="contact_phone_number"
-                      className="text-white"
-                    >
-                      Contact Phone #
-                    </label>
-                    <br />
-                    <input
-                      type="tel"
-                      name="contact_phone_number"
-                      id="contact_phone_number"
-                      placeholder="Phone Number"
-                      className="bg-white my-2 p-3 w-full"
-                      value={formState.contact_phone_number}
-                      onChange={handleEdit}
-                    />
-                  </div>
-                  <div className="w-6/12">
-                    <label htmlFor="tax_id" className="text-white">
-                      Tax ID/SSN
-                    </label>
-                    <br />
-                    <input
-                      type="text"
-                      name="tax_id"
-                      id="tax_id"
-                      placeholder="Tax ID or SSN"
-                      className="bg-white my-2 p-3 w-full"
-                      value={formState.tax_id}
-                      onChange={handleEdit}
-                    />
-                  </div>
-                </div>
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  placeholder="City"
+                  className="bg-white  p-3 w-full"
+                  value={formState.city}
+                  onChange={handleEdit}
+                />
               </div>
 
-              <div
-                id="locale"
-                className="bg-cubblue border-2 border-cubred shadow-lg rounded-xl flex flex-wrap gap-x-2 p-3 w-full lg:w-1/2 xl:w-1/2 mt-2 lg:mt-0 lg:flex-auto"
-              >
-                <div className="flex flex-col w-full sm:w-2/3">
-                  <label htmlFor="remittance_address" className="text-white">
-                    Remittance Street Address or P.O. Box
-                  </label>
-                  <input
-                    type="text"
-                    name="remittance_address"
-                    id="remittance_address"
-                    placeholder="Street Address or P.O. Box"
-                    className="bg-white my-2 p-3"
-                    value={formState.remittance_address}
-                    onChange={handleEdit}
-                  />
-                </div>
+              <div className="w-full mb:w-[49%]">
+                <label htmlFor="state" className="text-white">
+                  State/Province
+                </label>
+                <input
+                  type="text"
+                  name="state"
+                  id="state"
+                  placeholder="State or Province"
+                  className="bg-white  p-3 w-full"
+                  value={formState.state}
+                  onChange={handleEdit}
+                />
+              </div>
+            </div>
 
-                <div className="flex flex-col w-2/3 sm:w-1/4 flex-auto">
-                  <label htmlFor="city" className="text-white">
-                    City
-                  </label>
-                  <input
-                    type="text"
-                    name="city"
-                    id="city"
-                    placeholder="City"
-                    className="bg-white my-2 p-3"
-                    value={formState.city}
-                    onChange={handleEdit}
-                  />
-                </div>
+            <div className="mb:w-full mb:flex mx-auto mb:justify-between">
+              <div className="w-[125px] mb:w-[49%]">
+                <label htmlFor="zip_code" className="text-white">
+                  Zip Code
+                </label>
 
-                <div className="flex flex-col w-1/4 sm:w-1/6 flex-auto">
-                  <label htmlFor="state" className="text-white">
-                    State
-                  </label>
-                  <input
-                    type="text"
-                    name="state"
-                    id="state"
-                    placeholder="State"
-                    className="bg-white my-2 p-3"
-                    value={formState.state}
-                    onChange={handleEdit}
-                  />
-                </div>
+                <input
+                  type="text"
+                  name="zip_code"
+                  id="zip_code"
+                  placeholder="Zip Code"
+                  className="bg-white p-3 w-full"
+                  value={formState.zip_code}
+                  onChange={handleEdit}
+                />
+              </div>
 
-                <div className="flex flex-col w-2/6 sm:w-1/6 flex-auto">
-                  <label htmlFor="zip_code" className="text-white">
-                    Zip Code
-                  </label>
-                  <input
-                    type="text"
-                    name="zip_code"
-                    id="zip_code"
-                    placeholder="Zip Code"
-                    className="bg-white my-2 p-3"
-                    value={formState.zip_code}
-                    onChange={handleEdit}
-                  />
-                </div>
-
-                <div className="flex flex-col w-3/6 sm:w-2/6 flex-auto">
-                  <label htmlFor="country" className="text-white">
-                    Country
-                  </label>
+              <div className="w-[70px] mb:w-[49%] mx-auto mb:mx-0">
+                <label htmlFor="country" className="text-white">
+                  Country
                   <select
                     name="country"
                     id="country"
-                    className="bg-white my-2 p-3"
+                    className="bg-white  text-black text-center rounded-sm py-3.5 text-center  w-full"
                     value={formState.country}
                     onChange={handleEdit}
                   >
-                    <option value="">Select Country</option>
+                    <option value="">Select</option>
                     {uniqueCountries.map((country) => (
                       <option key={country} value={country}>
                         {country}
                       </option>
                     ))}
                   </select>
-                </div>
-
-                <div className="flex flex-col w-3/6 sm:w-1/6 flex-auto">
-                  <label htmlFor="remittance_email" className="text-white">
-                    Remittance Email
-                  </label>
-                  <input
-                    type="email"
-                    name="remittance_email"
-                    id="remittance_email"
-                    placeholder="Remittance Email"
-                    className="bg-white my-2 p-3"
-                    value={formState.remittance_email}
-                    onChange={handleEdit}
-                  />
-                </div>
+                </label>
               </div>
+            </div>
+
+            <div className="max-w-[250px] mb:max-w-full mx-auto mb:mx-0">
+              <label htmlFor="remittance_email" className="text-white">
+                Remittance Email
+              </label>
+
+              <input
+                type="email"
+                name="remittance_email"
+                id="remittance_email"
+                placeholder="example@gmail.com"
+                className="bg-white  p-3 w-full"
+                value={formState.remittance_email}
+                onChange={handleEdit}
+              />
             </div>
           </div>
 
           {/* Business Info */}
 
           <div>
-            <div className="mt-[20px] mb-[5px] text-center">
-              <h2 className="text-3xl text-white font-bold">
-                Business Information
-              </h2>
-            </div>
-
             <div
               id="business_info"
-              className="bg-cubblue border-2 rounded-xl shadow-lg border-cubred p-3 mt-2 w-full lg:flex-auto"
+              className="bg-cubblue bg-opacity-80 border-2 rounded-xl shadow-lg border-cubred px-3 pb-4 mt-4 w-full lg:flex-auto"
             >
-              <label htmlFor="service_provided" className="text-white">
-                Service Provided
-              </label>
-              <input
-                type="text"
-                name="service_provided"
-                id="service_provided"
-                placeholder="Service Provided"
-                className="bg-white w-full my-2 p-3"
-                value={formState.service_provided}
-                onChange={handleEdit}
-              />
+              <div className=" mt-2 mb-[5px] ">
+                <h2 className="text-3xl text-white font-bold">Business Info</h2>
+              </div>
 
-                <label
-                  htmlFor="minority_ownership"
-                  className="text-white sm:w-full"
-                >
+              <div className="flex flex-col max-w-[250px] mb:max-w-full mx-auto mb:mx-0">
+                <label htmlFor="service_provided" className="text-white">
+                  Service Provided
+                </label>
+                <input
+                  type="text"
+                  name="service_provided"
+                  id="service_provided"
+                  placeholder="Service Provided"
+                  className="bg-white max-w-[250px] mb:max-w-full  p-3"
+                  value={formState.service_provided}
+                  onChange={handleEdit}
+                />
+              </div>
+
+              <div className="mb:w-full mb:flex mb:flex-wrap mb:justify-between">
+                <div className="mb:w-[49%]">
+                  <label htmlFor="authorized_name" className="text-white">
+                    Authorized Name
+                  </label>
+                  <input
+                    type="text"
+                    name="authorized_name"
+                    id="authorized_name"
+                    placeholder="Authorized Name"
+                    className="bg-white max-w-[250px] mb:w-full  p-3"
+                    value={formState.authorized_name}
+                    onChange={handleEdit}
+                  />
+                </div>
+
+                <div className="mb:w-[49%]">
+                  <label
+                    htmlFor="authorized_phone_number"
+                    className="text-white"
+                  >
+                    Authorized Phone #
+                  </label>
+                  <input
+                    type="tel"
+                    name="authorized_phone_number"
+                    id="authorized_phone_number"
+                    placeholder="Authorized Phone Number"
+                    className="bg-white max-w-[250px] mb:w-full  p-3"
+                    value={formState.authorized_phone_number}
+                    onChange={handleEdit}
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col mb:w-[120px]">
+                <label htmlFor="minority_ownership" className="text-white">
                   Minority Owned
                 </label>
                 <select
                   name="minority_ownership"
                   id="minority_ownership"
-                  className="bg-white mb-1 w-full p-3 h-12"
+                  className="bg-white w-[80px] mx-auto mb:mx-0 rounded-sm mb:w-[80px]  text-center p-3 h-12"
                   value={businessInfo.minority_ownership}
                   onChange={handleChange}
                 >
                   <option value={true}>Yes</option>
                   <option value={false}>No</option>
                 </select>
-            
+              </div>
 
-              <label htmlFor="authorized_name" className="text-white">
-                Authorized Name
-              </label>
-              <input
-                type="text"
-                name="authorized_name"
-                id="authorized_name"
-                placeholder="Authorized Name"
-                className="bg-white w-full my-2 p-3"
-                value={formState.authorized_name}
-                onChange={handleEdit}
-              />
-
-              <label htmlFor="authorized_phone_number" className="text-white">
-                Authorized Phone #
-              </label>
-              <input
-                type="tel"
-                name="authorized_phone_number"
-                id="authorized_phone_number"
-                placeholder="Authorized Phone Number"
-                className="bg-white w-full my-2 p-3"
-                value={formState.authorized_phone_number}
-                onChange={handleEdit}
-              />
-
-              <div className="flex flex-col w-full" ref={canvasContainerRef}>
+              <div className="w-full" ref={canvasContainerRef}>
                 <label htmlFor="authorized_signature" className="text-white">
                   Authorized Signature
                 </label>
@@ -433,81 +433,83 @@ const VendorSignup = () => {
                   ref={signaturePadRef}
                   penColor="black"
                   canvasProps={{
-                    className: "signature-canvas w-full h-[150px]",
+                    className: "signature-canvas  w-full h-[150px]",
                     style: { backgroundColor: "white" },
                   }}
                 />
               </div>
 
-              <button
-                type="button"
-                onClick={clearSignature}
-                id="clearSignature"
-                className="cursor-pointer bg-cubred border rounded-md px-2 w-5/12 mt-1 text-white hover:bg-cubblue"
-              >
-                Clear Signature
-              </button>
+              <div className="flex">
+                <button
+                  type="button"
+                  onClick={clearSignature}
+                  id="clearSignature"
+                  className="cursor-pointer bg-cubred border rounded-md px-2  font-semibold w-[100px] mt-2 text-white hover:bg-cubblue"
+                >
+                  Clear
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Bank Info */}
 
           <div>
-            <div className="mt-[20px] mb-[5px] text-center">
-              <h2 className="text-3xl text-white font-bold">
-                Banking Information
-              </h2>
-            </div>
-
             <div
               id="bank_info"
-              className="bg-cubblue border-2 rounded-xl shadow-lg border-cubred p-3 mt-2 w-full lg:flex-auto"
+              className="bg-cubblue bg-opacity-80 border-2 rounded-xl shadow-lg border-cubred p-3 mt-2 w-full lg:flex-auto"
             >
-              <label htmlFor="bank_name" className="text-white">
-                Bank Name
-              </label>
-              <input
-                type="text"
-                name="bank_name"
-                id="bank_name"
-                placeholder="Bank Name"
-                className="bg-white w-full my-2 p-3"
-                value={formState.bank_name}
-                onChange={handleEdit}
-              />
+              <div className="mb-[5px] text-center mb:text-left">
+                <h2 className="text-3xl text-white font-bold">Banking Info</h2>
+              </div>
 
-              <label htmlFor="account_number" className="text-white">
-                Account Number
-              </label>
-              <input
-                type="text"
-                name="account_number"
-                id="account_number"
-                placeholder="Account Number"
-                className="bg-white w-full my-2 p-3"
-                value={formState.account_number}
-                onChange={handleEdit}
-              />
+              <div className="flex flex-col justify-center items-center mb:max-w-full mb:flex mb:flex-col mb:justify-center mb:items:center mx-auto text-center">
+                <label htmlFor="bank_name" className=" text-white">
+                  Bank Name
+                </label>
+                <input
+                  type="text"
+                  name="bank_name"
+                  id="bank_name"
+                  placeholder="Bank Name"
+                  className="bg-white max-w-[250px] mb:max-w-full text-center w-full  p-3"
+                  value={formState.bank_name}
+                  onChange={handleEdit}
+                />
 
-              <label htmlFor="routing_number" className="text-white">
-                Routing Number
-              </label>
-              <input
-                type="text"
-                name="routing_number"
-                id="routing_number"
-                placeholder="Routing Number"
-                className="bg-white w-full my-2 p-3"
-                value={formState.routing_number}
-                onChange={handleEdit}
-              />
+                <label htmlFor="account_number" className="text-white">
+                  Account Number
+                </label>
+                <input
+                  type="text"
+                  name="account_number"
+                  id="account_number"
+                  placeholder="Account Number"
+                  className="bg-white w-full mb:max-w-full text-center max-w-[250px]  p-3"
+                  value={formState.account_number}
+                  onChange={handleEdit}
+                />
+
+                <label htmlFor="routing_number" className="text-white">
+                  Routing Number
+                </label>
+                <input
+                  type="text"
+                  name="routing_number"
+                  id="routing_number"
+                  placeholder="Routing Number"
+                  className="bg-white w-full mb:max-w-full text-center max-w-[250px] p-3"
+                  value={formState.routing_number}
+                  onChange={handleEdit}
+                />
+              </div>
             </div>
           </div>
 
-          <div className="flex justify-end mt-4">
+          <div className="flex justify-center mt-3 mb-10">
             <button
               type="submit"
-              className="bg-cubred text-white px-6 py-3 rounded"
+              className="bg-cubred border focus:bg-cubblue text-white px-8 py-2  rounded"
             >
               Submit
             </button>

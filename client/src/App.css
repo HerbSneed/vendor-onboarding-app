@@ -11,6 +11,18 @@ html, body, #root {
 
 input {
   border-radius: 3px;
+  text-align: center;
+  margin-bottom: 7px;
+}
+
+label {
+  font-weight: 500;
+  text-align: center;
+}
+
+select {
+  margin-bottom: 7px;
+
 }
 
 .bg-gradient-to-b {
@@ -23,3 +35,10 @@ input {
   z-index: 0;
 }
 
+
+@media (min-width: 360px) {
+  label {
+    text-align: left;
+  }
+
+}

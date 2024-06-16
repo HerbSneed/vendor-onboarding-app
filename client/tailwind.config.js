@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'mb': '360px'
+      },
       backgroundImage: {
         'custom-bg': "url('../src/assets/images/Wrigley_Field_02.webp')"
       },
