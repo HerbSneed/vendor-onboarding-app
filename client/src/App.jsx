@@ -4,12 +4,12 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <div className="bg-custom-bg bg-cover bg-left-center lg:bg-center bg-fixed bg-no-repeat min-h-screen  grid grid-cols-1 min-w-screen">
+    <>
       <Header />
-      <main className="">
+      <main className="bg-custom-bg bg-cover bg-center bg-fixed  bg-no-repeat flex flex-col justify-center items-center">
         <Outlet />
       </main>
-    </div>
+    </>
   );
 }
 

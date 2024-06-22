@@ -15,7 +15,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 flex justify-center items-center bg-cubblue h-20 md:h-20  w-full">
+    <header className="sticky relative top-0 z-50 flex justify-center items-center bg-cubblue h-20  w-full">
       <a href="/">
         <img
           src={CubsRedLogo}

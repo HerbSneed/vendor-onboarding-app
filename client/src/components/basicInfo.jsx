@@ -90,7 +90,7 @@ const BasicInfo = ({ basicInfo, updateBasicInfo }) => {
             value={basicInfo.vendor_name}
             onChange={handleChange}
             placeholder="Your Vendor Name"
-            className="bg-white w-full mb-3 p-3"
+            className="bg-white text-black w-full mb-3 p-3"
           />
 
           <label className="text-white w-full">Contact Name</label>

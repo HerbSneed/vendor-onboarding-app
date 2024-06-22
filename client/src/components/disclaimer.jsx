@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-import { updateDisclaimerInfo } from "../utils/redux/actions/actions";
 
-const Disclaimer = ({ disclaimerInfo, updateDisclaimerInfo }) => {
+const Disclaimer = () => {
   const navigate = useNavigate();
 
 
@@ -10,13 +9,10 @@ const Disclaimer = ({ disclaimerInfo, updateDisclaimerInfo }) => {
   const handleAgree = async (event) => {
     event.preventDefault();
     // Update the disclaimer_agreement property to true
-    const updatedDisclaimerInfo = {
-      ...disclaimerInfo,
-      disclaimer_agreement: "Agreed",
-    };
+
     // Call updateDisclaimerInfo with the updated object
-    updateDisclaimerInfo(updatedDisclaimerInfo);
-    navigate("/vendor/business-info");
+
+    navigate("/vendor/review-info");
   };
 
   const handleDisagree = async (event) => {
