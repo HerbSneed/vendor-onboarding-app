@@ -176,7 +176,6 @@ module.exports = {
       });
 
       if (authorized_signature) {
-        console.log('Adding authorized signature image'); // Debug log
 
         // Remove the data URL prefix if it exists
         const base64Image = authorized_signature.split(';base64,').pop();
@@ -229,7 +228,6 @@ module.exports = {
 
       request
         .then(result => {
-          console.log(result.body);
         })
         .catch(err => {
           console.error(err.statusCode);

@@ -7,7 +7,6 @@ module.exports = {
     finance_email,
    },
   } = req;
-  console.log(req)
 
   try {
 
@@ -17,14 +16,12 @@ module.exports = {
      existingFinance.finance_email = finance_email;
       
     await existingFinance.save();
-    console.log(existingFinance);
     res.status(200).json(existingFinance);
   } else {
 
     const financeData = await Finance.create({
       finance_email,
     });
-   console.log(financeData)
     res.status(200).json(financeData);
   }
    

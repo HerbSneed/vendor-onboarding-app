@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { updateBankInfo } from "../../src/utils/redux/actions/actions";
 
 const BankInfo = ({ bankInfo, updateBankInfo }) => {
-  console.log("bankinfo", bankInfo)
   const navigate = useNavigate();
   const [error, setError] = useState(null);
 
