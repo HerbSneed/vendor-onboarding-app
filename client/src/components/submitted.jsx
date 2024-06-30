@@ -5,29 +5,30 @@ const VendorSubmitted = () => {
   const navigate = useNavigate();
 
   const handleNewVendorClick = () => {
-    console.log("New Vendor button clicked");
+    
     navigate("/vendor/new-vendor");
+    window.location.reload();
   };
 
   return (
     <>
       <div
-        className="mx-auto w-full flex flex-col pb-6 bg-gradient-to-b from-cubblue to-cubblue bg-[length:100%_5%,100%_100%] bg-no-repeat"
+        className="mx-auto w-screen flex flex-col items-center pb-6 bg-gradient-to-b from-cubblue to-cubblue bg-[length:100%_5%,100%_100%] bg-no-repeat justify-start lg:justify-center"
         id="submitted_background"
         style={{
           backgroundImage:
-            "linear-gradient(to bottom, var(--tw-gradient-stops)), linear-gradient(to bottom, var(--tw-gradient-stops) 10%, transparent 100%)"
+            "linear-gradient(to bottom, var(--tw-gradient-stops)), linear-gradient(to bottom, var(--tw-gradient-stops) 10%, transparent 100%)",
         }}
       >
-        <div className="bg-cubblue p-10 w-full flex flex-col pb-6"></div>
+
 
         <img
-          className="drop-shadow-lg w-[350px] sm:w-[500px] md:w-[550px] lg:w-[650px] mx-auto"
+          className="drop-shadow-lg max-w-[300px]  mt-20 lg:-mt-16 mb:max-w-[360px] sm:max-w-[460px] lg:max-w-[550px] mx-[20px]"
           src={Welcome}
           alt="Welcome"
         />
 
-        <p className="drop-shadow-lg text-sm sm:text-lg w-[325px] sm:w-[580px] md:w-[500px] lg:w-[550px] mx-auto sm:px-16 md:px-3 -mt-3 sm:-mt-4 md:-mt-5 lg:-mt-8 leading-relaxed md:leading-normal text-center text-lg md:text-xl lg:text-2xl text-white">
+        <p className="drop-shadow-lg text-[16px] sm:text-lg max-w-[280px] mb:max-w-[330px] sm:max-w-[440px] lg:max-w-[525px] mx-auto  -mt-3 sm:-mt-4  leading-relaxed lg:leading-[30px]  text-center text-lg font-bold  lg:text-[20px] text-white">
           Thank you for submitting your form. We will reach out if additional
           information is needed. To submit another vendor form, click the button
           below. Otherwise, you may close this window.

@@ -1,6 +1,5 @@
 document.querySelector('#financeForm').addEventListener('submit', function (event) {
  event.preventDefault();
- console.log("click")
 });
 
 async function newFinanceHandler(event) {
