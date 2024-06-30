@@ -9,7 +9,7 @@ import {
   updateBusinessInfo,
   updateBankInfo,
 } from "../../src/utils/redux/actions/actions"; 
-
+import scrollToTop from "../utils/helper/topScroll";
 
 const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updateBusinessInfo, updateBankInfo }) => {
   const navigate = useNavigate();
@@ -75,7 +75,6 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
       !basicInfo.country ||
       !basicInfo.remittance_email ||
       !businessInfo.service_provided ||
-      !businessInfo.minority_ownership ||
       !businessInfo.authorized_name ||
       !businessInfo.authorized_phone_number ||
       !authorized_signature ||
@@ -89,9 +88,10 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
 
     try {
       updateBasicInfo(basicInfo);
-      updateBusinessInfo(businessInfo);
+      updateBusinessInfo({businessInfo, authorized_signature});
       updateBankInfo(bankInfo);
       navigate("/vendor/disclaimer");
+      scrollToTop();
     } catch (err) {
       setError("Vendor information is not correct");
       console.error("Vendor Info error", err);
@@ -106,380 +106,378 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
     };
 
   return (
-    <div className=" w-screen text-center pt-1 pb-3 mb:text-left">
-      <p className="text-white font-bold drop-shadow-lg pt-2 mb:max-w-[325px] mx-auto text-center text-xl lg:text-2xl lg:max-w-[400px]">
+    <div className="text-center  pt-24 pb-3 mb:text-left">
+      <p className="w-[300px] font-bold text-center mx-auto text-xl drop-shadow-lg text-white">
         Complete all required fields before sumbiting your information.
       </p>
 
       <form
         id="vendorForm"
-        className=" flex flex-col gap-y-6 my-3 mx-[10px] mb:mx-auto mb:max-w-[350px] lg:max-w-[875px] lg:flex lg:flex-row lg:flex-wrap lg:gap-x-5 lg:justify-center lg:p-6 lg:bg-gray-300 lg:bg-opacity-50 lg:rounded-lg"
+        className="lg:bg-gray-300 lg:mx-auto lg:mt-3  lg:max-w-[775px] lg:bg-opacity-50 lg:rounded-lg lg:py-6"
         onSubmit={handleSubmit}
       >
-        {/* Basic Info */}
         <section
-          id="basic_info"
-          className="flex flex-col mb:flex-wrap  lg:flex-auto bg-cubblue border-2 rounded-xl shadow-lg border-cubred px-3 lg:max-w-[400px] py-4"
+          className="
+          flex flex-col  gap-y-5 my-3 lg:max-w-[700px]  lg:flex lg:flex-row lg:mx-auto lg:flex-wrap"
         >
-          <div className="mb-[5px]">
+          {/* Basic Info */}
+          <section
+            id="basic_info"
+            className="bg-cubblue border-2 border-cubred bg-opacity-80 shadow-lg rounded-xl mx-auto flex flex-col lg:my-0 gap-2 p-3 w-[300px] mb:w-[330px] mx-auto"
+          >
             <h2 className="text-3xl text-white font-bold">Contact Info</h2>
-          </div>
 
-          <div className="max-w-[250px]  mx-auto mb:mx-0 mb:max-w-full">
-            <label htmlFor="vendor_name" className="text-white">
-              Vendor Name
-            </label>
-            <input
-              type="text"
-              name="vendor_name"
-              id="vendor_name"
-              placeholder=""
-              className="bg-white w-full px-1"
-              value={basicInfo.vendor_name}
-              onChange={handleChange}
-            />
-          </div>
-
-          <label className="text-white">Contact Name</label>
-
-          <div className="max-w-[250px] mb:max-w-full flex flex-col justify-center items-center mx-auto mb:flex-row mb:flex-wrap mb:justify-between">
-            <label htmlFor="contact_firstName"></label>
-            <input
-              type="text"
-              name="contact_firstName"
-              id="contact_firstName"
-              placeholder=""
-              className="bg-white w-full mb:w-[49%] px-1"
-              value={basicInfo.contact_firstName}
-              onChange={handleChange}
-            />
-            <label htmlFor="contact_lastName"></label>
-            <input
-              type="text"
-              name="contact_lastName"
-              id="contact_lastName"
-              placeholder=""
-              className="bg-white w-full mb:w-[49%] px-1"
-              value={basicInfo.contact_lastName}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="max-w-[250px] mb:max-w-full mx-auto mb:flex mb:justify-between">
-            <div className="mb:w-[49%]">
-              <label
-                htmlFor="contact_phone_number"
-                className="text-white mb:text-left"
-              >
-                Contact Phone #
-              </label>
-              <input
-                type="tel"
-                name="contact_phone_number"
-                id="contact_phone_number"
-                placeholder=""
-                className="bg-white p-3 w-full"
-                value={basicInfo.contact_phone_number}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="mb:w-[49%]">
-              <label htmlFor="tax_id" className="text-white">
-                Tax ID/SSN
+            <div className="w-full flex flex-col">
+              <label htmlFor="vendor_name" className="text-white">
+                Vendor Name:
               </label>
               <input
                 type="text"
-                name="tax_id"
-                id="tax_id"
+                name="vendor_name"
+                id="vendor_name"
                 placeholder=""
-                className="bg-white  p-3 w-full"
-                value={basicInfo.tax_id}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-
-          <div className="max-w-[250px] mb:max-w-full mx-auto">
-            <label htmlFor="remittance_address" className="text-white">
-              Street Address or P.O. Box
-            </label>
-
-            <input
-              type="text"
-              name="remittance_address"
-              id="remittance_address"
-              placeholder=""
-              className="bg-white  p-3 w-full"
-              value={basicInfo.remittance_address}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="max-w-[250px] mb:max-w-full mx-auto mb:flex mb:justify-between">
-            <div className="w-full mb:w-[49%]">
-              <label htmlFor="city" className="text-white">
-                City
-              </label>
-
-              <input
-                type="text"
-                name="city"
-                id="city"
-                placeholder=""
-                className="bg-white  p-3 w-full"
-                value={basicInfo.city}
+                className="bg-white  px-1"
+                value={basicInfo.vendor_name}
                 onChange={handleChange}
               />
             </div>
 
-            <div className="w-full mb:w-[49%]">
-              <label htmlFor="state" className="text-white">
-                State/Province
-              </label>
-              <select
-                name="state"
-                id="state"
-                value={basicInfo.state}
-                onChange={handleChange}
-                className="bg-white text-center rounded mb-3 p-3.5 w-full"
-              >
-                <option value="">Select</option>
-                {provinces.length > 0 &&
-                  provinces.map((province) => (
-                    <option
-                      key={`${province.short}-${province.name}-${province.country}-${province.region}`}
-                      value={province.name}
-                    >
-                      {containsChinese(province.name) && province["english"]
-                        ? province["english"]
-                        : province.name}
-                    </option>
-                  ))}
-              </select>
-            </div>
-          </div>
-
-          <div className="mb:w-full mb:flex mx-auto mb:justify-between">
-            <div className="w-[125px] mb:w-[49%]">
-              <label htmlFor="zip_code" className="text-white">
-                Zip Code
-              </label>
-
-              <input
-                type="text"
-                name="zip_code"
-                id="zip_code"
-                placeholder=""
-                className="bg-white p-3 w-full"
-                value={basicInfo.zip_code}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="w-[70px] mb:w-[49%] mx-auto mb:mx-0">
-              <label htmlFor="country" className="text-white">
-                Country
-                <select
-                  name="country"
-                  id="country"
-                  className="bg-white  text-black text-center rounded-sm py-3.5 text-center  w-full"
-                  value={basicInfo.country}
+            <div className="flex flex-wrap gap-x-3 gap-y-2 ">
+              <div className="flex flex-col w-full mb:w-[48%]">
+                <label htmlFor="contact_firstName" className="text-white">
+                  First Name:
+                </label>
+                <input
+                  type="text"
+                  name="contact_firstName"
+                  id="contact_firstName"
+                  placeholder=""
+                  className="bg-white px-1"
+                  value={basicInfo.contact_firstName}
                   onChange={handleChange}
+                />
+              </div>
+
+              <div className="flex flex-col w-full mb:w-[48%]">
+                <label htmlFor="contact_lastName" className="text-white">
+                  Last Name:
+                </label>
+                <input
+                  type="text"
+                  name="contact_lastName"
+                  id="contact_lastName"
+                  placeholder=""
+                  className="bg-white px-1"
+                  value={basicInfo.contact_lastName}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="w-full flex flex-col mb:flex-row gap-x-3">
+                <div className="flex flex-col w-full mb:w-[48%]">
+                  <label htmlFor="tax_id" className="text-white">
+                    Tax ID/SSN:
+                  </label>
+                  <input
+                    type="number"
+                    name="tax_id"
+                    id="tax_id"
+                    placeholder=""
+                    className="bg-white px-1 "
+                    value={basicInfo.tax_id}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="flex flex-col w-full mb:w-[48%]">
+                  <label htmlFor="contact_phone_number" className="text-white">
+                    Contact Phone #:
+                  </label>
+                  <input
+                    type="tel"
+                    name="contact_phone_number"
+                    id="contact_phone_number"
+                    placeholder=""
+                    className="bg-white px-1"
+                    value={basicInfo.contact_phone_number}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col w-full lg:w-full">
+                <label htmlFor="remittance_address" className="text-white">
+                  Remittance Address:
+                </label>
+
+                <input
+                  type="text"
+                  name="remittance_address"
+                  id="remittance_address"
+                  placeholder=""
+                  className="bg-white  px-1 w-full"
+                  value={basicInfo.remittance_address}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="flex flex-col w-full mb:w-[71%]">
+                <label htmlFor="city" className="text-white">
+                  City:
+                </label>
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  placeholder=""
+                  className="bg-white px-1 "
+                  value={basicInfo.city}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="flex flex-col w-[50%] mb:w-[25%]">
+                <label htmlFor="zip_code" className="text-white">
+                  Zip Code:
+                </label>
+                <input
+                  type="text"
+                  name="zip_code"
+                  id="zip_code"
+                  placeholder=""
+                  className="bg-white px-1 "
+                  value={basicInfo.zip_code}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="flex flex-col w-full mb:w-[71%]">
+                <label htmlFor="state" className="text-white">
+                  State/Province:
+                </label>
+                <select
+                  name="state"
+                  id="state"
+                  value={basicInfo.state}
+                  onChange={handleChange}
+                  className="bg-white text-center rounded  py-[2px]"
                 >
                   <option value="">Select</option>
-                  {uniqueCountries.map((country) => (
-                    <option key={country} value={country}>
-                      {country}
-                    </option>
-                  ))}
+                  {provinces.length > 0 &&
+                    provinces.map((province) => (
+                      <option
+                        key={`${province.short}-${province.name}-${province.country}-${province.region}`}
+                        value={province.name}
+                      >
+                        {containsChinese(province.name) && province["english"]
+                          ? province["english"]
+                          : province.name}
+                      </option>
+                    ))}
                 </select>
-              </label>
+              </div>
+
+              <div className="flex flex-col w-[25%]">
+                <label htmlFor="country" className="text-white">
+                  Country:
+                  <select
+                    name="country"
+                    id="country"
+                    className="bg-white  text-black text-center rounded-sm py-[2px] text-center  w-full"
+                    value={basicInfo.country}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select</option>
+                    {uniqueCountries.map((country) => (
+                      <option key={country} value={country}>
+                        {country}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
             </div>
-          </div>
 
-          <div className="max-w-[250px] mb:max-w-full mx-auto mb:mx-0">
-            <label htmlFor="remittance_email" className="text-white">
-              Remittance Email
-            </label>
+            <div className="flex flex-col w-full">
+              <label htmlFor="remittance_email" className="text-white">
+                Remittance Email:
+              </label>
 
-            <input
-              type="email"
-              name="remittance_email"
-              id="remittance_email"
-              placeholder="example@gmail.com"
-              className="bg-white  p-3 w-full"
-              value={basicInfo.remittance_email}
-              onChange={handleChange}
-            />
-          </div>
-        </section>
+              <input
+                type="email"
+                name="remittance_email"
+                id="remittance_email"
+                placeholder="example@gmail.com"
+                className="bg-white  px-1 w-full"
+                value={basicInfo.remittance_email}
+                onChange={handleChange}
+              />
+            </div>
+          </section>
 
-        {/* Business Info */}
+          {/* Business Info */}
 
-        <div
-          id="business_info"
-          className="flex flex-col mb:flex-wrap  lg:flex-auto bg-cubblue border-2 rounded-xl shadow-lg border-cubred px-3 lg:max-w-[400px] py-4"
-        >
-          <div className="mb-[5px] ">
-            <h2 className="text-3xl text-white font-bold">Business Info</h2>
-          </div>
+          <section
+            id="business_info"
+            className="bg-cubblue border-2 border-cubred bg-opacity-80 shadow-lg rounded-xl mx-auto flex flex-col lg:my-0 gap-2 p-3  w-[300px] mb:w-[330px]"
+          >
+            <div className="flex flex-col">
+              <h2 className="text-3xl text-white font-bold">Business Info</h2>
+            </div>
 
-          <div className="flex flex-col max-w-[250px] mb:max-w-full mx-auto mb:mx-0">
-            <label htmlFor="service_provided" className="text-white">
-              Service Provided
-            </label>
-            <input
-              type="text"
-              name="service_provided"
-              id="service_provided"
-              placeholder=""
-              className="bg-white max-w-[250px]  mb:max-w-full  p-3"
-              value={businessInfo.service_provided}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="mb:w-full mb:flex mb:flex-wrap mb:justify-between">
-            <div className="mb:w-[49%]">
-              <label htmlFor="authorized_name" className="text-white">
-                Authorized Name
+            <div className="flex flex-col w-full lg:w-full">
+              <label htmlFor="service_provided" className="text-white">
+                Service Provided
               </label>
               <input
                 type="text"
-                name="authorized_name"
-                id="authorized_name"
+                name="service_provided"
+                id="service_provided"
                 placeholder=""
-                className="bg-white max-w-[250px] mb:w-full  p-3"
-                value={businessInfo.authorized_name}
+                className="bg-white px-1"
+                value={businessInfo.service_provided}
                 onChange={handleChange}
               />
             </div>
 
-            <div className="mb:w-[49%]">
-              <label htmlFor="authorized_phone_number" className="text-white">
-                Authorized Phone #
+            <div className="flex flex-wrap gap-x-2 justify-between gap-y-2">
+              <div className="flex flex-col w-full lg:w-full">
+                <label htmlFor="authorized_name" className="text-white">
+                  Authorized Name
+                </label>
+                <input
+                  type="text"
+                  name="authorized_name"
+                  id="authorized_name"
+                  placeholder=""
+                  className="bg-white px-1"
+                  value={businessInfo.authorized_name}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="flex flex-col w-full mb:w-1/2">
+                <label htmlFor="authorized_phone_number" className="text-white">
+                  Authorized Phone #
+                </label>
+                <input
+                  type="tel"
+                  name="authorized_phone_number"
+                  id="authorized_phone_number"
+                  placeholder=""
+                  className="bg-white px-1"
+                  value={businessInfo.authorized_phone_number}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="flex flex-col  w-1/2 mb:w-[46%]">
+                <label htmlFor="minority_ownership" className="text-white">
+                  Minority Owned:
+                </label>
+                <select
+                  name="minority_ownership"
+                  id="minority_ownership"
+                  className="bg-white px-1 text-center rounded w-1/2 mb:w-full py-[2px]"
+                  value={businessInfo.minority_ownership}
+                  onChange={handleChange}
+                >
+                  <option value={true}>Yes</option>
+                  <option value={false}>No</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="flex flex-col w-full" ref={canvasContainerRef}>
+              <label htmlFor="authorized_signature" className="text-white">
+                Authorized Signature:
               </label>
-              <input
-                type="tel"
-                name="authorized_phone_number"
-                id="authorized_phone_number"
-                placeholder=""
-                className="bg-white max-w-[250px] mb:w-full  p-3"
-                value={businessInfo.authorized_phone_number}
-                onChange={handleChange}
+              <SignatureCanvas
+                ref={signaturePadRef}
+                penColor="black"
+                canvasProps={{
+                  className:
+                    "signature-canvas  w-full h-[150px] rounded lg:h-[175px]",
+                  style: { backgroundColor: "white" },
+                }}
               />
             </div>
-          </div>
 
-          <div className="flex flex-col mb:w-[120px]">
-            <label htmlFor="minority_ownership" className="text-white">
-              Minority Owned
-            </label>
-            <select
-              name="minority_ownership"
-              id="minority_ownership"
-              className="bg-white w-[80px] mx-auto mb:mx-0 rounded-sm mb:w-[80px]  text-center p-3 h-12"
-              value={businessInfo.minority_ownership}
-              onChange={handleChange}
-            >
-              <option value={true}>Yes</option>
-              <option value={false}>No</option>
-            </select>
-          </div>
+            <div className="flex">
+              <button
+                type="button"
+                onClick={clearSignature}
+                id="clearSignature"
+                className="cursor-pointer bg-cubred border rounded px-2  font-semibold w-[100px] mt-2 text-white hover:bg-cubblue"
+              >
+                Clear
+              </button>
+            </div>
+          </section>
 
-          <div className="w-full" ref={canvasContainerRef}>
-            <label htmlFor="authorized_signature" className="text-white">
-              Authorized Signature
-            </label>
-            <SignatureCanvas
-              id="authorized_signature"
-              ref={signaturePadRef}
-              penColor="black"
-              canvasProps={{
-                className:
-                  "signature-canvas  w-full h-[150px] rounded lg:h-[250px]",
-                style: { backgroundColor: "white" },
-              }}
-            />
-          </div>
+          {/* Bank Info */}
 
-          <div className="flex">
-            <button
-              type="button"
-              onClick={clearSignature}
-              id="clearSignature"
-              className="cursor-pointer bg-cubred border rounded px-2  font-semibold w-[100px] mt-2 text-white hover:bg-cubblue"
-            >
-              Clear
-            </button>
-          </div>
-        </div>
-
-        {/* Bank Info */}
-
-        <div>
-          <div
+          <section
             id="bank_info"
-            className="flex flex-col mb:flex-wrap max-w-[250px] mx-auto  lg:flex-auto bg-cubblue border-2 rounded-xl shadow-lg border-cubred px-3 lg:min-w-[250px] py-4"
+            className="bg-cubblue border-2 border-cubred bg-opacity-80 shadow-lg rounded-xl mx-auto flex flex-col lg:my-0 p-3  w-[300px] mb:w-[330px]"
           >
-            <div className="mb-[5px] text-center mb:text-center">
+            <div className="text-center text-center">
               <h2 className="text-3xl text-white font-bold">Banking Info</h2>
             </div>
 
-            <div className="flex flex-col justify-center items-center mb:max-w-full mb:flex mb:flex-col mb:justify-center mb:items:center mx-auto text-center">
+            <div className="w-full flex justify-center items-center flex-col mt-3 ">
               <label htmlFor="bank_name" className=" text-white">
-                Bank Name
+                Bank Instituion:
               </label>
               <input
                 type="text"
                 name="bank_name"
                 id="bank_name"
                 placeholder=""
-                className="bg-white max-w-[250px] mb:max-w-full text-center w-full  p-3"
+                className="bg-white px-1 w-[55%]"
                 value={bankInfo.bank_name}
                 onChange={handleChange}
               />
 
               <label htmlFor="account_number" className="text-white">
-                Account Number
+                Account Number:
               </label>
               <input
                 type="text"
                 name="account_number"
                 id="account_number"
                 placeholder=""
-                className="bg-white w-full mb:max-w-full text-center max-w-[250px]  p-3"
+                className="bg-white px-1 w-[55%]"
                 value={bankInfo.account_number}
                 onChange={handleChange}
               />
 
               <label htmlFor="routing_number" className="text-white">
-                Routing Number
+                Routing Number:
               </label>
               <input
                 type="text"
                 name="routing_number"
                 id="routing_number"
                 placeholder=""
-                className="bg-white w-full mb:max-w-full text-center max-w-[250px] p-3"
+                className="bg-white px-1 w-[55%]"
                 value={bankInfo.routing_number}
                 onChange={handleChange}
               />
             </div>
-          </div>
+          </section>
+        </section>
 
-          <div className="flex justify-center mt-3 mb-5 lg:mb-0 ">
-            <button
-              type="submit"
-              className="bg-cubred border focus:bg-cubblue lg:w-[250px] text-center text-white px-8 py-2 rounded"
-            >
-              Submit
-            </button>
-          </div>
-
-          {error && <p className="text-red-600 mt-4">{error}</p>}
+        <div className="flex justify-center mt-3 mb-5">
+          <button
+            type="submit"
+            className="bg-cubred border focus:bg-cubblue lg:w-[250px] text-center text-white px-8 py-2 rounded"
+          >
+            Submit
+          </button>
         </div>
+
+        {error && <p className="text-red-600 mt-4">{error}</p>}
       </form>
     </div>
   );

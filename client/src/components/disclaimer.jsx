@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { connect } from "react-redux";
 
 const Disclaimer = () => {
   const navigate = useNavigate();
@@ -24,19 +23,19 @@ const Disclaimer = () => {
 
 
   return (
-    <div className=" top-0 bg-cubblue w-full bg-opacity-50 py-4  h-screen flex flex-col justify-start items-center">
-      <div className=" px-[6px] text-center sm:w-[700px] lg:w-[800px]">
-        <div className="text-center w-[300px]  sm:text-lg mx-auto ">
-          <h2 className="text-3xl  drop-shadow-lg text-white font-bold">
+    <div className=" top-0 bg-cubblue w-full pt-24 bg-opacity-50 py-4 absolute top-0 bottom-0 flex flex-col justify-start lg:justify-center lg:pt-0 items-center">
+
+        <div className="text-center w-[280px] lg:w-[310px] ">
+          <h2 className="text-3xl lg:text-4xl  drop-shadow-lg text-white font-bold">
             Disclaimer
           </h2>
-          <p className="text-white font-bold">
+          <p className="text-white  lg:text-xl font-bold">
             To continue the vendor must read and agree to the disclaimer.
           </p>
         </div>
 
-        <div className="mt-2 mx-auto sm:w-10/12">
-          <p className="text-center text-white mx-4 md:leading-relaxed md:text-lg">
+        <div className="mt-2 mx-auto max-w-[300px] mb:max-w-[500px] md:max-w-[600px]">
+          <p className="text-center text-white mx-4 md:leading-relaxed md:text-lg px-2">
             Except in limited situations, the Company*** is not eligible for any
             state sales tax exemptions, and as such, expects its vendors and
             suppliers to charge it the appropriate local sales tax on taxable
@@ -50,12 +49,12 @@ const Disclaimer = () => {
             to report the required taxes.
           </p>
 
-          <p className="font-bold my-2 md:leading-relaxed text-center text-white mx-4 sm:px-10 md:px-9 md:text-lg">
+          <p className="font-bold my-2 md:leading-relaxed text-center max-w-[280px] mb:max-w-[400px] md:max-w-[500px] mx-auto text-white mx-4 sm:px-10 md:px-9 md:text-lg">
             The above-named vendor is able to, and will, charge appropriate
             local and state sales and other taxes on its invoices:
           </p>
 
-          <div className="text-white mx-5 mt-5 font-bold flex justify-between sm:justify-center sm:gap-x-10">
+          <div className="text-white mx-5 mt-5 font-bold flex gap-x-5 justify-center sm:gap-x-10">
             <button
               className="bg-cubred py-2 px-6 w-[100px]  bg-cubred  border text-white px-4 py-3 rounded-md  hover:bg-cubblue rounded-md border   rounded-md"
               onClick={handleAgree}
@@ -73,16 +72,9 @@ const Disclaimer = () => {
           </div>
         </div>
       </div>
-    </div>
   );
-};
 
-const mapStateToProps = (state) => ({
-  disclaimerInfo: state.disclaimerInfo,
-});
+}
 
-const mapDispatchToProps = (dispatch) => ({
-  updateDisclaimerInfo: (data) => dispatch(updateDisclaimerInfo(data)),
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Disclaimer);
+export default Disclaimer;

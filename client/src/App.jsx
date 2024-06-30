@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Header />
-      <main className="bg-custom-bg bg-cover bg-center bg-fixed  bg-no-repeat flex flex-col justify-center items-center">
+      <main className="bg-custom-bg bg-cover bg-center bg-fixed bg-no-repeat  w-screen bottom-0 overflow-scroll absolute top-0">
         <Outlet />
       </main>
     </>

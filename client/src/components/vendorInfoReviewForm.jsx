@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState, useEffect,useRef } from "react";
 import axios from "axios";
 import {
   updateBasicInfo,
@@ -40,7 +40,13 @@ const VendorInfoReviewForm = () => {
   });
 
   const [error, setError] = useState(null);
-  const sigCanvas = useRef({});
+  const sigCanvas = useRef(null);
+
+    useEffect(() => {
+      setSignature(formState.authorized_signature);
+    }, [formState.authorized_signature]);
+
+
 
   const handleEdit = (event) => {
     const { name, value, type, checked } = event.target;
@@ -141,7 +147,7 @@ const VendorInfoReviewForm = () => {
   };
 
   return (
-    <div className="w-screen  text-center pt-1 pb-3 mb:text-left">
+    <div className="w-screen  text-center pt-24 pb-3 mb:text-left">
       <p className="w-[300px] font-bold text-center mx-auto text-xl  drop-shadow-lg text-white">
         Review the information you provided before submitting. Click the edit
         button to make corrections.
@@ -149,7 +155,7 @@ const VendorInfoReviewForm = () => {
 
       <form
         method="POST"
-        className="flex flex-col gap-y-4 my-3 mx-[10px] mb:mx-auto mb:max-w-[350px] lg:max-w-[875px] lg:flex lg:flex-row lg:flex-wrap lg:gap-x-5 lg:justify-center lg:p-6 lg:bg-gray-300 lg:bg-opacity-50 lg:rounded-lg"
+        className="flex flex-col gap-y-4 my-3 mx-[10px] mb:mx-auto mb:max-w-[350px] lg:max-w-[740px] lg:flex lg:flex-row lg:flex-wrap lg:gap-x-5 lg:justify-center lg:p-6 lg:bg-gray-300 lg:bg-opacity-50 lg:rounded-lg"
         onSubmit={handleSubmit}
       >
         {/* BASIC INFO */}
@@ -168,10 +174,9 @@ const VendorInfoReviewForm = () => {
           </div>
 
           <div className="w-full flex flex-col">
-            <label htmlFor="vendor" className="text-white text-left">
+            <label htmlFor="vendor_name" className="text-white ">
               Vendor Name:
             </label>
-
             <input
               type="text"
               name="vendor_name"
@@ -183,8 +188,8 @@ const VendorInfoReviewForm = () => {
           </div>
 
           <div className="flex flex-wrap gap-x-3 gap-y-2 ">
-            <div className="flex flex-col w-5/12">
-              <label htmlFor="vendor" className="text-white">
+            <div className="flex flex-col w-[48%]">
+              <label htmlFor="contact_firstName" className="text-white">
                 First Name:
               </label>
               <input
@@ -197,8 +202,10 @@ const VendorInfoReviewForm = () => {
               />
             </div>
 
-            <div className="flex flex-col w-5/12">
-              <label className="text-white">Last Name:</label>
+            <div className="flex flex-col w-[48%]">
+              <label htmlFor="contact_lastName" className="text-white">
+                Last Name:
+              </label>
               <input
                 type="text"
                 name="contact_lastName"
@@ -209,21 +216,11 @@ const VendorInfoReviewForm = () => {
               />
             </div>
 
-            <div className="flex flex-col w-1/12 ">
-              <label className="text-white">M.I.</label>
-              <input
-                type="text"
-                name="contact_MiddleInt"
-                value={formState.contact_MiddleInt}
-                onChange={handleEdit}
-                readOnly={!editMode.basicInfo}
-                className={`bg-white text-center ${editMode.basicInfo ? `bg-yellow-100` : ``}`}
-              />
-            </div>
-
             <div className="w-full flex gap-x-3">
-              <div className="flex flex-col w-6/12">
-                <label className="text-white">Vendor Tax ID/SSN:</label>
+              <div className="flex flex-col w-[48%]">
+                <label htmlFor="tax_id" className="text-white mb:text-left">
+                  Tax ID/SSN:
+                </label>
                 <input
                   type="text"
                   name="tax_id"
@@ -234,15 +231,17 @@ const VendorInfoReviewForm = () => {
                 />
               </div>
 
-              <div className="flex flex-col w-6/12">
-                <label className="text-white">Contact Phone #:</label>
+              <div className="flex flex-col w-[48%]">
+                <label htmlFor="contact_phone_number" className="text-white">
+                  Contact Phone #:
+                </label>
                 <input
                   type="text"
                   name="contact_phone_number"
                   value={formState.contact_phone_number}
                   onChange={handleEdit}
                   readOnly={!editMode.basicInfo}
-                  className={`bg-white px-1 mr-3 ${editMode.basicInfo ? `bg-yellow-100` : ``}`}
+                  className={`bg-white px-1 ${editMode.basicInfo ? `bg-yellow-100` : ``}`}
                 />
               </div>
             </div>
@@ -260,7 +259,9 @@ const VendorInfoReviewForm = () => {
             </div>
 
             <div className="flex flex-col w-[71%]">
-              <label className="text-white">City:</label>
+              <label htmlFor="city" className="text-white">
+                City:
+              </label>
               <input
                 type="text"
                 name="city"
@@ -283,7 +284,7 @@ const VendorInfoReviewForm = () => {
               />
             </div>
 
-            <div className="flex flex-col w-[76%]">
+            <div className="flex flex-col w-[71%]">
               <label className="text-white">State / Province: </label>
               {editMode.basicInfo ? (
                 <select
@@ -291,7 +292,7 @@ const VendorInfoReviewForm = () => {
                   id="state"
                   value={formState.state}
                   onChange={handleEdit}
-                  className="bg-yellow-100 py-[2px]"
+                  className="bg-yellow-100 py-[2px] text-center"
                 >
                   <option value="">Select</option>
                   {provinces.length > 0 &&
@@ -318,7 +319,7 @@ const VendorInfoReviewForm = () => {
               )}
             </div>
 
-            <div className="flex flex-col w-[20%]">
+            <div className="flex flex-col w-[25%]">
               <label className="text-white">Country:</label>
               {editMode.basicInfo ? (
                 <select
@@ -326,7 +327,7 @@ const VendorInfoReviewForm = () => {
                   id="country"
                   value={formState.country}
                   onChange={handleEdit}
-                  className="bg-white py-[2px]  w-full bg-yellow-100"
+                  className="bg-white text-center py-[2px]  w-full bg-yellow-100"
                 >
                   <option value="">Select</option>
                   {uniqueCountries.map((country, index) => (
@@ -363,7 +364,8 @@ const VendorInfoReviewForm = () => {
 
         {/* Business Info */}
 
-        <section className="bg-cubblue border-2 border-cubred bg-opacity-80 shadow-lg rounded-xl mx-auto flex flex-col lg:my-0 gap-2 p-3  w-[330px]">
+        <section 
+          className="bg-cubblue border-2 border-cubred bg-opacity-80 shadow-lg rounded-xl mx-auto flex flex-col lg:my-0 gap-2 p-3  w-[330px]">
           <div className="flex justify-between">
             <h2 className="text-3xl  text-white font-bold">Business Info</h2>
             <button
@@ -408,18 +410,19 @@ const VendorInfoReviewForm = () => {
                 value={formState.authorized_phone_number}
                 onChange={handleEdit}
                 readOnly={!editMode.businessInfo}
-                className={`bg-white px-1 mr-2 ${editMode.businessInfo ? `bg-yellow-100` : ``}`}
+                className={`bg-white px-1 
+                ${editMode.businessInfo ? `bg-yellow-100` : ``}`}
               />
             </div>
 
-            <div className="flex flex-col w-[42.3%] h-1/4">
+            <div className="flex flex-col items-end w-[42.3%]">
               <label className="text-white">Minority Owned:</label>
               <select
                 name="minority_ownership"
                 value={formState.minority_ownership}
                 onChange={handleEdit}
                 disabled={!editMode.businessInfo}
-                className={`bg-white px-1 rounded mr-3 w-1/2 py-[2px] ${editMode.businessInfo ? `bg-yellow-100` : ``}`}
+                className={`bg-white px-1 rounded w-1/2 py-[2px] ${editMode.businessInfo ? `bg-yellow-100` : ``}`}
               >
                 <option value={true}>Yes</option>
                 <option value={false}>No</option>
@@ -468,7 +471,9 @@ const VendorInfoReviewForm = () => {
         </section>
 
         {/* Bank Info */}
-        <section className="bg-cubblue border-2 border-cubred bg-opacity-80 shadow-lg rounded-xl mx-auto flex flex-col lg:my-0 p-3  w-[330px]">
+        <section 
+          className="bg-cubblue border-2 border-cubred bg-opacity-80 shadow-lg rounded-xl mx-auto flex flex-col lg:my-0 p-3  w-[330px]">
+
           <div className="flex justify-between">
             <h2 className="text-3xl text-center text-white font-bold">
               Banking Info
@@ -482,7 +487,7 @@ const VendorInfoReviewForm = () => {
             </button>
           </div>
 
-          <div className="w-full flex justify-between flex-col items-center  mt-3 ">
+          <div className="w-full flex justify-center flex-col items-center  mt-3 ">
             <label className="text-white">Bank Institution:</label>
             <input
               type="text"
@@ -492,9 +497,7 @@ const VendorInfoReviewForm = () => {
               readOnly={!editMode.bankInfo}
               className={`bg-white px-1 w-[55%] ${editMode.bankInfo ? `bg-yellow-100` : ``}`}
             />
-          </div>
 
-          <div className="w-full flex flex-col justify-between items-center mt-1">
             <label className="text-white">Account Number:</label>
             <input
               type="text"
@@ -504,9 +507,7 @@ const VendorInfoReviewForm = () => {
               readOnly={!editMode.bankInfo}
               className={`bg-white px-1 w-[55%] ${editMode.bankInfo ? `bg-yellow-100` : ``}`}
             />
-          </div>
-
-          <div className="w-full flex flex-col justify-between items-center mt-1">
+      
             <label className="text-white">Routing Number:</label>
             <input
               type="text"

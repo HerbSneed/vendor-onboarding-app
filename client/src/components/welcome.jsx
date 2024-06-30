@@ -31,8 +31,11 @@ const Welcome = () => {
     };
 
   return (
-    <div className="bg-custom-bg bg-cover bg-center bg-fixed  bg-no-repeat flex flex-col justify-center items-center w-screen flex flex-col justify-center top-0 bottom-0 absolute">
-      <div className="text-center border -mt-5 rounded-lg bg-gray-100 w-[350px] mx-3 px-2 py-6 bg-opacity-70">
+    <div className="bg-custom-bg bg-cover bg-center bg-fixed  bg-no-repeat flex flex-col justify-center items-center w-screen top-0 bottom-0 absolute">
+
+      <form 
+        onSubmit={handleSubmit} id="financeForm"    method="POST"
+        className="text-center border -mt-5 rounded-lg bg-gray-100 max-w-[310px] mx-[10px] px-2 py-6 bg-opacity-70">
         <h1 className="font-bold text-2xl text-cubblue text-center">
           Welcome to the Vendor Onboarding App!
         </h1>
@@ -42,17 +45,15 @@ const Welcome = () => {
           information below.
         </p>
 
-        <form onSubmit={handleSubmit} id="financeForm" method="POST">
-          <div>
-            <input
-              type="text"
-              id="finance_email"
-              placeholder="Email address to recieve vendor info"
-              className="bg-white my-2 p-3 w-[330px] text-black text-center"
-              value={formState.finance_email}
-              onChange={handleChange}
-            />
-          </div>
+        <input
+          type="text"
+          id="finance_email"
+          placeholder="Email address to recieve vendor info"
+          className="bg-white my-2 p-3 w-full text-black text-center"
+          value={formState.finance_email}
+          onChange={handleChange}
+        />
+   
 
           <div className="py-2 signup">
             <button
@@ -65,7 +66,7 @@ const Welcome = () => {
           </div>
         </form>
       </div>
-    </div>
+
   );
 };
 

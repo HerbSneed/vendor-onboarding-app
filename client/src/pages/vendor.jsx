@@ -6,7 +6,7 @@ const Vendor = () => {
 
 
   return (
-    <div className="flex justify-center items-center min-w-screen">
+    <div className=" flex justify-center items-center">
     </div>
   );
 };
