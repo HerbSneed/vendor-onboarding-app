@@ -12,7 +12,7 @@ const Welcome = () => {
       if(
         !formState.finance_email
       ) {
-        alert("Please fill out email");
+        alert("Please provide a valid email address.");
         return;
       }
       try {
@@ -32,41 +32,41 @@ const Welcome = () => {
 
   return (
     <div className="bg-custom-bg bg-cover bg-center bg-fixed  bg-no-repeat flex flex-col justify-center items-center w-screen top-0 bottom-0 absolute">
-
-      <form 
-        onSubmit={handleSubmit} id="financeForm"    method="POST"
-        className="text-center border -mt-5 rounded-lg bg-gray-100 max-w-[310px] mx-[10px] px-2 py-6 bg-opacity-70">
+      <form
+        onSubmit={handleSubmit}
+        id="financeForm"
+        method="POST"
+        className="text-center border -mt-5 rounded-lg bg-gray-100 max-w-[310px] mx-[10px] px-2 py-6 bg-opacity-70"
+      >
         <h1 className="font-bold text-2xl text-cubblue text-center">
           Welcome to the Vendor Onboarding App!
         </h1>
         <p>
-          This application is for demonstation purpouses only. To begin provide
-          the email address where you would like to receive a vendors
-          information below.
+          This application is for demonstration purposes only. To begin, provide
+          the email address where you would like to receive vendor information
+          below.
         </p>
 
         <input
           type="text"
           id="finance_email"
-          placeholder="Email address to recieve vendor info"
+          placeholder="Email Address"
           className="bg-white my-2 p-3 w-full text-black text-center"
           value={formState.finance_email}
           onChange={handleChange}
         />
-   
 
-          <div className="py-2 signup">
-            <button
-              type="submit"
-              id="newFinanceSubmit"
-              className="hover:bg-cubred bg-cubblue border-cubred border-2 text-white px-4 py-3 rounded font-medium w-full"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
-
+        <div className="py-2 signup">
+          <button
+            type="submit"
+            id="newFinanceSubmit"
+            className="hover:bg-cubred bg-cubblue border-cubred border-2 text-white px-4 py-3 rounded font-medium w-full"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 
