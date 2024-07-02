@@ -283,7 +283,7 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
                   <select
                     name="country"
                     id="country"
-                    className="bg-white  text-black text-center rounded-sm py-[2px] text-center  w-full"
+                    className="bg-white  text-black text-center rounded-sm py-[2px] w-full"
                     value={basicInfo.country}
                     onChange={handleChange}
                   >
@@ -365,7 +365,7 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
                   name="authorized_phone_number"
                   id="authorized_phone_number"
                   placeholder=""
-                  className="bg-white px-1"
+                  className="bg-white px-1 py-[1px]"
                   value={businessInfo.authorized_phone_number}
                   onChange={handleChange}
                 />
