@@ -108,7 +108,7 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
   return (
     <div className="text-center  pt-24 pb-3 mb:text-left">
       <p className="w-[300px] font-bold text-center mx-auto text-xl drop-shadow-lg text-white">
-        Complete all required fields before sumbiting your information.
+        Complete all required fields before submitting your information.
       </p>
 
       <form
@@ -365,7 +365,7 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
                   name="authorized_phone_number"
                   id="authorized_phone_number"
                   placeholder=""
-                  className="bg-white px-1 py-[1.5px]"
+                  className="bg-white px-1 py-[2px]"
                   value={businessInfo.authorized_phone_number}
                   onChange={handleChange}
                 />
