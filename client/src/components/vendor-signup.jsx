@@ -221,7 +221,7 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
                 />
               </div>
 
-              <div className="flex flex-col w-full mb:w-[71%]">
+              <div className="flex flex-col w-full mb:w-[68%]">
                 <label htmlFor="city" className="text-white">
                   City:
                 </label>
@@ -236,7 +236,7 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
                 />
               </div>
 
-              <div className="flex flex-col w-[50%] mb:w-[25%]">
+              <div className="flex flex-col w-[50%] mb:w-[28%]">
                 <label htmlFor="zip_code" className="text-white">
                   Zip Code:
                 </label>
@@ -251,7 +251,7 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
                 />
               </div>
 
-              <div className="flex flex-col w-full mb:w-[71%]">
+              <div className="flex flex-col w-full mb:w-[68%]">
                 <label htmlFor="state" className="text-white">
                   State/Province:
                 </label>
@@ -277,7 +277,7 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
                 </select>
               </div>
 
-              <div className="flex flex-col w-[25%]">
+              <div className="flex flex-col w-[28%]">
                 <label htmlFor="country" className="text-white">
                   Country:
                   <select
@@ -358,7 +358,7 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
 
               <div className="flex flex-col w-full mb:w-1/2">
                 <label htmlFor="authorized_phone_number" className="text-white">
-                  Authorized Phone #
+                  Auth Phone #
                 </label>
                 <input
                   type="tel"
