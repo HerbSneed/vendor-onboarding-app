@@ -365,7 +365,7 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
                   name="authorized_phone_number"
                   id="authorized_phone_number"
                   placeholder=""
-                  className="bg-white px-1 py-[1px]"
+                  className="bg-white px-1 py-[1.5px]"
                   value={businessInfo.authorized_phone_number}
                   onChange={handleChange}
                 />
