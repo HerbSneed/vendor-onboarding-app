@@ -277,7 +277,7 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
                 </select>
               </div>
 
-              <div className="flex flex-col w-[28%]">
+              <div className="flex flex-col mt-1 mb:mt-0 w-[28%]">
                 <label htmlFor="country" className="text-white">
                   Country:
                   <select
@@ -298,7 +298,7 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
               </div>
             </div>
 
-            <div className="flex flex-col w-full">
+            <div className="flex flex-col mt-2 w-full">
               <label htmlFor="remittance_email" className="text-white">
                 Remittance Email:
               </label>
@@ -378,7 +378,7 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
                 <select
                   name="minority_ownership"
                   id="minority_ownership"
-                  className="bg-white px-1 text-center rounded-sm w-1/2 mb:w-full"
+                  className="bg-white px-1 text-center rounded-sm w-1/2 mb:w-full py-[2px]"
                   value={businessInfo.minority_ownership}
                   onChange={handleChange}
                 >
