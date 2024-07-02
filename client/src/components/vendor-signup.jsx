@@ -378,7 +378,7 @@ const VendorSignup = ({basicInfo, businessInfo, bankInfo, updateBasicInfo, updat
                 <select
                   name="minority_ownership"
                   id="minority_ownership"
-                  className="bg-white px-1 text-center rounded w-1/2 mb:w-full py-[2px]"
+                  className="bg-white px-1 text-center rounded-sm w-1/2 mb:w-full py-[1.5px]"
                   value={businessInfo.minority_ownership}
                   onChange={handleChange}
                 >
