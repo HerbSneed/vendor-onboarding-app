@@ -31,12 +31,12 @@ const Welcome = () => {
     };
 
   return (
-    <div className="flex flex-col justify-center items-center w-screen">
+    <div className="flex flex-col justify-center items-center w-screen py-12">
       <form
         onSubmit={handleSubmit}
         id="financeForm"
         method="POST"
-        className="text-center border mt-20 lg:mt-0 rounded-lg bg-gray-100    max-w-[500px] max-h-[310px] mx-[10px] px-2 py-1 bg-opacity-70"
+        className="text-center border mt-14 lg:mt-0 rounded-lg bg-gray-100    max-w-[500px] max-h-[310px] mx-[10px] px-2 py-1 bg-opacity-70"
       >
         <h1 className="font-bold text-2xl text-cubblue text-center">
           Welcome to the Vendor Onboarding App!
@@ -51,7 +51,7 @@ const Welcome = () => {
           type="text"
           id="finance_email"
           placeholder="Email Address"
-          className="bg-white my-2 p-3 w-full text-black text-center"
+          className="bg-white my-2 w-full text-black text-center"
           value={formState.finance_email}
           onChange={handleChange}
         />

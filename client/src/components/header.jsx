@@ -15,12 +15,12 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="sticky relative top-0 z-50 flex justify-center items-center bg-cubblue h-20  w-screen">
+    <header className="sticky relative top-0 z-50 flex justify-center items-center bg-cubblue h-14 lg:h-20  w-screen">
       <a href="/">
         <img
           src={CubsRedLogo}
           alt="Cubs Red Logo"
-          className="w-[175px]"
+          className="w-[125px] lg:w-[175px]"
         />
       </a>
     </header>
