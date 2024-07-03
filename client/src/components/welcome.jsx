@@ -31,12 +31,12 @@ const Welcome = () => {
     };
 
   return (
-    <div className="bg-custom-bg bg-cover bg-center bg-fixed  bg-no-repeat flex flex-col justify-center items-center w-screen top-0 bottom-0 absolute">
+    <div className="flex flex-col justify-center items-center w-screen">
       <form
         onSubmit={handleSubmit}
         id="financeForm"
         method="POST"
-        className="text-center border -mt-5 rounded-lg bg-gray-100 max-w-[310px] mx-[10px] px-2 py-6 bg-opacity-70"
+        className="text-center border mt-20 lg:mt-0 rounded-lg bg-gray-100    max-w-[500px] max-h-[300px] mx-[10px] px-2 py-2 bg-opacity-70"
       >
         <h1 className="font-bold text-2xl text-cubblue text-center">
           Welcome to the Vendor Onboarding App!
