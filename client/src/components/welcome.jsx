@@ -36,7 +36,7 @@ const Welcome = () => {
         onSubmit={handleSubmit}
         id="financeForm"
         method="POST"
-        className="text-center border lg:mt-0 rounded-lg bg-gray-100    max-w-[560px] max-h-[350px] mx-[10px] px-2 py-1 bg-opacity-70"
+        className="text-center border mt-2 lg:mt-0 rounded-lg bg-gray-100    max-w-[560px] max-h-[350px] mx-[10px] px-2 py-1 bg-opacity-70"
       >
         <h1 className="font-bold text-2xl text-cubblue text-center">
           Welcome to the Vendor Onboarding App!
