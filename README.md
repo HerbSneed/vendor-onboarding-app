@@ -2,7 +2,7 @@
 
 ## Description 
 
-The Cubs Vendor Sign Up App is a user-friendly platform that facilitates the seamless registration process for new vendors seeking to offer their services to the Chicago Cubs Video Production Department. Tailored to meet the specific needs of both the vendors and the department, the application streamlines the onboarding experience, providing a straightforward and efficient way for vendors to submit their information and offerings. By leveraging modern technology, the app ensures a hassle-free registration process, contributing to the overall efficiency of the Chicago Cubs Video Production Department's vendor management system.
+The Vendor Onboarding App is a user-friendly platform that facilitates the seamless registration process for new vendors seeking to offer their services to an organization. Tailored to meet the specific needs of both the vendors and the department, the application streamlines the onboarding experience, providing a straightforward and efficient way for vendors to submit their information and offerings. By leveraging modern technology, the app ensures a hassle-free registration process, contributing to the overall efficiency of the Department's vendor management system.
 
 
 ## User Story
@@ -30,10 +30,10 @@ of use for the Chicago Cubs Video Production Department and its vendors.
 
 ## Technology
 
-TailwindCSS, HTML, Handlebars.js, JavaScript, Sequelize, NodeJS, BCrypt, NodeMailer and MYSQL
+TailwindCSS, HTML, REACT, JavaScript, Sequelize, NodeJS, BCrypt, MailJet and MYSQL
 
 ## Links
 
-GitHub: [https://github.com/HerbSneed/Cubs_Vendor_App](url)
+GitHub: [https://github.com/HerbSneed/vendor-onboarding-app](url)
 
-Deployment: [https://cubs-vendor-app-258d3c7c3af4.herokuapp.com/](url)
+Deployment: [https://vendor-onboarding-app-54b9b2aea80d.herokuapp.com/](url)

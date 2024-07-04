@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "## Your Task",
+  "description": "Originaly created for the Chicago Cubs, the Vendor Onboarding App is a user-friendly platform that facilitates the seamless registration process for new vendors seeking to offer their services. Tailored to meet the specific needs of both the vendors and the department, the application streamlines the onboarding experience, providing a straightforward and efficient way for vendors to submit their information and offerings. By leveraging modern technology, the app ensures a hassle-free registration process, contributing to the overall efficiency of the Finance Department's vendor management system.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:HerbSneed/Cubs_Vendor_App.git"
+    "url": "https://github.com/HerbSneed/vendor-onboarding-app"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/HerbSneed/Cubs_Vendor_App/issues"
+    "url": "https://github.com/HerbSneed/vendor-onboarding-app/issues"
   },
-  "homepage": "https://github.com/HerbSneed/Cubs_Vendor_App#readme",
+  "homepage": "https://github.com/HerbSneed/vendor-onboarding-app#readme",
   "dependencies": {
     "axios": "^1.5.1",
     "base64-img": "^1.0.4",
